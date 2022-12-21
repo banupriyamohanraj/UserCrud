@@ -28,7 +28,7 @@ app.use("/user",user)
 
 //ROUTES
 //get all the login info 
-app.get("/", async (req, res) => {
+app.get("/",authorize, async (req, res) => {
     try {
         let client = await MongoClient.connect(dbURL);
         let db = await client.db('user');
